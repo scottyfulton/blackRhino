@@ -4,7 +4,7 @@ import "./NavBar.css";
 export default function Result(props) {
     return (
         <div>
-            <h2 className="jumboTY">Confirmed, thank you {props.userName}</h2>
+            <h1 className="jumboTY">Confirmed, thank you {props.userName}!</h1>
         </div>
     );
 }

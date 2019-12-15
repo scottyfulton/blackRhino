@@ -35,11 +35,16 @@ export default class FormsPage extends React.Component {
             Scotty: "",
             Tiff: "",
             Tyler: "",
-            Byron: ""
+            Byron: "",
+            Laura: "",
+            lastUser: ""
         };
 
         this.handleUserNameChange = event => {
-            this.setState({ username: event.target.value });
+            this.setState({
+                username: event.target.value,
+                lastUser: event.target.value
+            });
         };
 
         this.handleSubmit = async event => {
@@ -68,7 +73,7 @@ export default class FormsPage extends React.Component {
                     tempArr.push("Tiff : " + this.state.Tiff);
                     tempArr.push("Byron : " + this.state.Byron);
                     tempArr.push("Tyler : " + this.state.Tyler);
-                    // }
+                    tempArr.push("Laura : " + this.state.Laura); // }
                     try {
                         let URI =
                             "https://black-rhino-api.herokuapp.com/submitList";
@@ -97,18 +102,20 @@ export default class FormsPage extends React.Component {
                                 Scotty: "",
                                 Tiff: "",
                                 Tyler: "",
-                                Byron: ""
+                                Byron: "",
+                                Laura: ""
                             }),
-                            console.log(tempArr)
+                            window.scrollTo(0, 0)
                         );
                     } catch (error) {
                         alert("ERROR ::: " + error + " :::");
                     }
                 } else {
-                    alert("Please enter your name as appears in list");
+                    return;
                 }
             } else {
-                return;
+                alert("Please enter your name as appears in list");
+
                 // alert("Finish yo shiz!");
             }
         };
@@ -157,14 +164,15 @@ export default class FormsPage extends React.Component {
             // let name = event.id;
             this.setState({ Megg: event.target.value });
         };
+        this.handleLauraIdea = event => {
+            // let name = event.id;
+            this.setState({ Laura: event.target.value });
+        };
     }
 
     render() {
         return (
             <div className="container">
-                {this.state.confirmed && (
-                    <Result userName={this.state.username} />
-                )}
                 {/* <Dropdown /> */}
                 <form onSubmit={this.handleSubmit}>
                     <br />
@@ -172,14 +180,16 @@ export default class FormsPage extends React.Component {
                     <br />
                     <br />
                     <br />
-                    <br />
-
+                    {this.state.confirmed && (
+                        <Result userName={this.state.lastUser} />
+                    )}
                     <div>(Who is creating this list)</div>
                     <div className="nameTag">Your name:</div>
                     <div className="card">
                         {/* <br /> */}
                         <input
                             type="text"
+                            placeholder="your name"
                             value={this.state.username}
                             onChange={this.handleUserNameChange}
                         />
@@ -308,6 +318,17 @@ export default class FormsPage extends React.Component {
                             id="Tyler"
                             value={this.state.Tyler}
                             onChange={this.handleTylerIdea}
+                        />
+                    </div>
+                    <br />
+                    <div className="nameTag">Laura</div>
+                    <div className="card">
+                        <input
+                            placeholder="idea"
+                            type="text"
+                            id="Laura"
+                            value={this.state.Laura}
+                            onChange={this.handleLauraIdea}
                         />
                     </div>
                     <br />
