@@ -1,5 +1,5 @@
 import React from "react";
-import blackRhino from "./blackRhinoBG.png";
+import blackRhino from "./altBRBG.PNG";
 
 export default function HelloPage(props) {
     return (

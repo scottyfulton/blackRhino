@@ -1,6 +1,7 @@
 import React from "react";
 import Dropdown from "./Dropdown";
 import "./FormsPage.css";
+import Result from "./Result";
 
 const userList = [
     "Steph",
@@ -22,6 +23,7 @@ export default class FormsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            confirmed: false,
             username: "",
             Steph: "",
             Steve: "",
@@ -45,45 +47,69 @@ export default class FormsPage extends React.Component {
             event.preventDefault();
             userList.forEach(name => {
                 if (this.state.username == name) {
-                    alert("found a match");
+                    alert("YAY, you got your name correct!");
                     matchfound = true;
                 }
             });
             if (matchfound) {
-                alert("make fetch");
-                // for (let i = 0; i < numOfPeeps; i++) {
-                tempArr.push(this.state.Steph);
-                tempArr.push(this.state.Steve);
-                tempArr.push(this.state.Kris);
-                tempArr.push(this.state.Dee);
-                tempArr.push(this.state.Denn);
-                tempArr.push(this.state.Megg);
-                tempArr.push(this.state.Rene);
-                tempArr.push(this.state.Scotty);
-                tempArr.push(this.state.Tiff);
-                tempArr.push(this.state.Byron);
-                tempArr.push(this.state.Tyler);
-                // }
-                try {
-                    let URI =
-                        "https://black-rhino-api.herokuapp.com/submitList";
-                    let localURI = "http://localhost:3003/submitList";
-                    await fetch(URI, {
-                        method: "POST",
-                        headers: {
-                            Accept: "application/json",
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                            userName: this.state.username,
-                            list: tempArr.toString()
-                        })
-                    }).then(console.log(tempArr));
-                } catch (error) {
-                    alert("ERROR ::: " + error + " :::");
+                let answ = window.confirm(
+                    "Last chance to change anything, are you sure you're finished?"
+                );
+                if (answ) {
+                    // for (let i = 0; i < numOfPeeps; i++) {
+                    tempArr.push(this.state.Steph);
+                    tempArr.push(this.state.Steve);
+                    tempArr.push(this.state.Kristy);
+                    tempArr.push(this.state.Dee);
+                    tempArr.push(this.state.Denn);
+                    tempArr.push(this.state.Megg);
+                    tempArr.push(this.state.Rene);
+                    tempArr.push(this.state.Scotty);
+                    tempArr.push(this.state.Tiff);
+                    tempArr.push(this.state.Byron);
+                    tempArr.push(this.state.Tyler);
+                    // }
+                    try {
+                        let URI =
+                            "https://black-rhino-api.herokuapp.com/submitList";
+                        let localURI = "http://localhost:3003/submitList";
+                        await fetch(URI, {
+                            method: "POST",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                userName: this.state.username,
+                                list: tempArr.toString()
+                            })
+                        }).then(
+                            this.setState({
+                                confirmed: true,
+                                username: "",
+                                Steph: "",
+                                Steve: "",
+                                Kristy: "",
+                                Dee: "",
+                                Denn: "",
+                                Megg: "",
+                                Rene: "",
+                                Scotty: "",
+                                Tiff: "",
+                                Tyler: "",
+                                Byron: ""
+                            }),
+                            console.log(tempArr)
+                        );
+                    } catch (error) {
+                        alert("ERROR ::: " + error + " :::");
+                    }
+                } else {
+                    alert("Please enter your name as appears in list");
                 }
             } else {
-                alert("Please enter your name as appears in list");
+                return;
+                // alert("Finish yo shiz!");
             }
         };
 
@@ -136,6 +162,9 @@ export default class FormsPage extends React.Component {
     render() {
         return (
             <div className="container">
+                {this.state.confirmed && (
+                    <Result userName={this.state.username} />
+                )}
                 {/* <Dropdown /> */}
                 <form onSubmit={this.handleSubmit}>
                     <div>(Who is creating this list)</div>

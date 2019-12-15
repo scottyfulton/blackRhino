@@ -12,7 +12,7 @@ class NavBar extends React.Component {
         return (
             <Router>
                 <div>
-                    <h2>Happy Black Rhinoceros Christmas Game</h2>
+                    <h1>Happy Black Rhinoceros Christmas Game</h1>
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
                         <ul className="navbar-nav mr-auto">
                             <li>
@@ -23,21 +23,15 @@ class NavBar extends React.Component {
                             </li>
                             <li>
                                 <Link to={"/forms"} className="nav-link">
-                                    Create your list
+                                    Lists
                                 </Link>
-                            </li>
-                            <li>
-                                {/* <Link to={"/about"} className="nav-link">
-                                    About
-                                </Link> */}
                             </li>
                         </ul>
                     </nav>
-                    <hr />
+                    <br />
                     <Switch>
                         <Route exact path="/" component={HelloPage} />
                         <Route path="/forms" component={FormsPage} />
-                        {/* <Route path="/about" component={About} /> */}
                     </Switch>
                 </div>
             </Router>
