@@ -65,7 +65,8 @@ export default class FormsPage extends React.Component {
                 tempArr.push(this.state.Tyler);
                 // }
                 try {
-                    let URI = "https://black-rhino-api.herokuapp.com/";
+                    let URI =
+                        "https://black-rhino-api.herokuapp.com/submitList";
                     let localURI = "http://localhost:3003/submitList";
                     await fetch(URI, {
                         method: "POST",
