@@ -189,7 +189,7 @@ export default class FormsPage extends React.Component {
                         {/* <br /> */}
                         <input
                             type="text"
-                            placeholder="your name"
+                            placeholder="as appears in below list"
                             value={this.state.username}
                             onChange={this.handleUserNameChange}
                         />
@@ -198,7 +198,7 @@ export default class FormsPage extends React.Component {
                     <br />
                     <div>
                         (Add one gift idea for each person, including one for
-                        yourself) )
+                        yourself)
                     </div>
                     <div className="nameTag">Steph</div>
                     <div className="card">
