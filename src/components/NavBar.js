@@ -23,7 +23,7 @@ class NavBar extends React.Component {
                             </li>
                             <li>
                                 <Link to={"/forms"} className="nav-link">
-                                    Forms
+                                    Create your list
                                 </Link>
                             </li>
                             <li>

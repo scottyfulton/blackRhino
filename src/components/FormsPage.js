@@ -15,6 +15,8 @@ const userList = [
     "Byron",
     "Tyler"
 ];
+let numOfPeeps = 11;
+let tempArr = [];
 
 export default class FormsPage extends React.Component {
     constructor(props) {
@@ -38,7 +40,7 @@ export default class FormsPage extends React.Component {
             this.setState({ username: event.target.value });
         };
 
-        this.handleSubmit = event => {
+        this.handleSubmit = async event => {
             let matchfound = false;
             event.preventDefault();
             userList.forEach(name => {
@@ -49,6 +51,36 @@ export default class FormsPage extends React.Component {
             });
             if (matchfound) {
                 alert("make fetch");
+                // for (let i = 0; i < numOfPeeps; i++) {
+                tempArr.push(this.state.Steph);
+                tempArr.push(this.state.Steve);
+                tempArr.push(this.state.Kris);
+                tempArr.push(this.state.Dee);
+                tempArr.push(this.state.Denn);
+                tempArr.push(this.state.Megg);
+                tempArr.push(this.state.Rene);
+                tempArr.push(this.state.Scotty);
+                tempArr.push(this.state.Tiff);
+                tempArr.push(this.state.Byron);
+                tempArr.push(this.state.Tyler);
+                // }
+                try {
+                    let URI = "https://black-rhino-api.herokuapp.com/";
+                    let localURI = "http://localhost:3003/submitList";
+                    await fetch(URI, {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            userName: this.state.username,
+                            list: tempArr.toString()
+                        })
+                    }).then(console.log(tempArr));
+                } catch (error) {
+                    alert("ERROR ::: " + error + " :::");
+                }
             } else {
                 alert("Please enter your name as appears in list");
             }
@@ -105,9 +137,10 @@ export default class FormsPage extends React.Component {
             <div className="container">
                 {/* <Dropdown /> */}
                 <form onSubmit={this.handleSubmit}>
+                    <div>(Who is creating this list)</div>
                     <div className="nameTag">Your name:</div>
                     <div className="card">
-                        <br />
+                        {/* <br /> */}
                         <input
                             type="text"
                             value={this.state.username}
@@ -116,6 +149,10 @@ export default class FormsPage extends React.Component {
                     </div>
                     <br />
                     <br />
+                    <div>
+                        (Add one gift idea for each person, including one for
+                        yourself) )
+                    </div>
                     <div className="nameTag">Steph</div>
                     <div className="card">
                         <input
