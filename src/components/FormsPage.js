@@ -57,17 +57,17 @@ export default class FormsPage extends React.Component {
                 );
                 if (answ) {
                     // for (let i = 0; i < numOfPeeps; i++) {
-                    tempArr.push(this.state.Steph);
-                    tempArr.push(this.state.Steve);
-                    tempArr.push(this.state.Kristy);
-                    tempArr.push(this.state.Dee);
-                    tempArr.push(this.state.Denn);
-                    tempArr.push(this.state.Megg);
-                    tempArr.push(this.state.Rene);
-                    tempArr.push(this.state.Scotty);
-                    tempArr.push(this.state.Tiff);
-                    tempArr.push(this.state.Byron);
-                    tempArr.push(this.state.Tyler);
+                    tempArr.push("Steph: " + this.state.Steph);
+                    tempArr.push("Steve : " + this.state.Steve);
+                    tempArr.push("Kristy : " + this.state.Kristy);
+                    tempArr.push("Dee : " + this.state.Dee);
+                    tempArr.push("Denn : " + this.state.Denn);
+                    tempArr.push("Megg : " + this.state.Megg);
+                    tempArr.push("Rene : " + this.state.Rene);
+                    tempArr.push("Scotty : " + this.state.Scotty);
+                    tempArr.push("Tiff : " + this.state.Tiff);
+                    tempArr.push("Byron : " + this.state.Byron);
+                    tempArr.push("Tyler : " + this.state.Tyler);
                     // }
                     try {
                         let URI =
