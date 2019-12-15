@@ -1,0 +1,27 @@
+.card {
+    max-width: 50%;
+    min-width: 40%;
+    /* vertical-align: baseline; */
+
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    align-content: left;
+    /* padding-left: 1%; */
+}
+.container {
+    align-content: left;
+    /* vertical-align: baseline; */
+    text-align: left;
+    justify-content: left;
+    /* display: inline-table; */
+}
+
+.nameTag {
+    /* vertical-align: baseline; */
+    /* display: inline-bock; */
+    float: left;
+    justify-content: left;
+    padding-right: 10px;
+    display: inline-block;
+    width: 60px;
+}
