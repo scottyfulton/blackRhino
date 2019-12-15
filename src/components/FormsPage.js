@@ -167,6 +167,13 @@ export default class FormsPage extends React.Component {
                 )}
                 {/* <Dropdown /> */}
                 <form onSubmit={this.handleSubmit}>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
                     <div>(Who is creating this list)</div>
                     <div className="nameTag">Your name:</div>
                     <div className="card">

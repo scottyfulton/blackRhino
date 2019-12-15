@@ -13,6 +13,11 @@
     /* vertical-align: baseline; */
     text-align: left;
     justify-content: left;
+    color: green;
+    -webkit-text-fill-color: green; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 1.4rem;
     /* display: inline-table; */
 }
 

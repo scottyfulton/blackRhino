@@ -17,7 +17,6 @@ class NavBar extends React.Component {
                         <ul className="navbar-nav mr-auto">
                             <li>
                                 <Link to={"/"} className="nav-link">
-                                    {" "}
                                     Home{" "}
                                 </Link>
                             </li>
